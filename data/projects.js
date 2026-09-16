@@ -207,17 +207,17 @@ window.PROJECTS = [
     tags: ["Generative", "Ambient", "AI Agents", "Visual Systems"],
     cover: "assets/img/eyecandy/cover.png",
     media: [
-      // TODO: WebGL build is on itch but the page is not public yet, so there is no
-      // embed URL to use. Once the itch project is set to Public with the HTML build
-      // playable in browser, take the URL from itch's "Embed" options — it looks like
-      // https://itch.io/embed-upload/1234567?color=0d0f11 — and uncomment this line.
-      // Tick "automatically start on page load" on itch: this piece is ambient and
-      // should never sit behind a click-to-play splash.
-      // { type: "itch", src: "https://itch.io/embed-upload/0000000?color=0d0f11", width: 960, height: 600 },
+      // Autostarts — no click-to-play splash, which is the point for an ambient piece.
+      // Source build is 640x360 (16:9); .media__embed is aspect-ratio 16/9, so it fits
+      // exactly. Page: https://mintchocodino.itch.io/8biteyecandy
+      { type: "itch", src: "https://itch.io/embed-upload/19259485?color=0d0f11", width: 960, height: 540,
+        caption: "Running live. There are no controls — it plays itself. Fullscreen button, bottom right" },
       { type: "image", src: "assets/img/eyecandy/cover.png", caption: "Ships and wireframe asteroids mid-engagement" }
     ],
-    links: [],
-    status: ["Ambient"]
+    links: [
+      { label: "View on itch.io", href: "https://mintchocodino.itch.io/8biteyecandy" }
+    ],
+    status: ["Runs in browser", "Ambient"]
   },
 
   /* ===================================================================== */
