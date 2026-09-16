@@ -85,7 +85,8 @@ The site has "View source" links commented out because the repos do not exist ye
       machines, and a multiplayer session with two players visible.
 - [ ] **DOTS Particle System** — a screen recording, and your particle-count numbers
       if you measured them. A benchmark is the whole point of a DOTS project.
-- [ ] **Lil Ghost Game** — gameplay screenshots, and the one playtesting story:
+- [ ] **Lil Ghost Game** — screenshots are in (recovered from the design decks). Still
+      needs a 20-second gameplay clip, and the one playtesting story:
       what broke, what players did, what you changed.
 - [ ] **Eco-Viridis** — which bibles you personally wrote.
 - [ ] **Narrative Work** — a paragraph each on Over Yonder, Deliverance, and the
