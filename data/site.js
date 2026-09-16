@@ -25,8 +25,8 @@ window.SITE = {
   links: {
     email:    "nphodnett10@gmail.com",
     github:   "https://github.com/MintChocoDino",
-    itch:     "",                    // TODO: https://YOURNAME.itch.io
-    linkedin: "",                    // TODO: your LinkedIn URL
+    itch:     "https://mintchocodino.itch.io/",
+    linkedin: "https://www.linkedin.com/in/nathanial-hodnett-6664a5270/",
     resume:   ""                     // TODO: "assets/docs/NathanialHodnett-Resume.pdf"
   },
 

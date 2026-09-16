@@ -10,8 +10,8 @@ affects whether the site works as a job application.
 ### Your details
 In `data/site.js`:
 
-- [ ] **`links.linkedin`** — your LinkedIn URL
-- [ ] **`links.itch`** — your itch.io profile URL
+- [x] ~~`links.linkedin`~~ — done
+- [x] ~~`links.itch`~~ — done
 - [ ] **`links.resume`** — drop the PDF in `assets/docs/` and point at it,
       e.g. `assets/docs/NathanialHodnett-Resume.pdf`
 - [ ] **`spec[].Location`** — city and state, or "Remote"

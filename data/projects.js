@@ -263,16 +263,20 @@ window.PROJECTS = [
     id: "lil-ghost",
     title: "Lil Ghost Game",
     category: "games",
-    featured: false,
+    featured: true,
     year: "2024",
     engine: "Unity 2021 · C#",
     role: "Designer / developer",
     team: "TODO — solo or team",
     summary:
-      "A 2D platformer taken through a full design process — mood boards, challenge " +
-      "design, playtesting rounds and documented revisions.",
+      "A 2D platformer set in a cosmic underworld, taken through a full design process — " +
+      "mood boards, challenge design, playtesting rounds and documented revisions.",
     body: [
-      "Lil Ghost is the project where the paper trail is the point. It went through mood " +
+      "Lil Ghost is a precision platformer built around a small purple ghost navigating a " +
+      "dark, ember-lit cavern. Movement, wall contact and spike hazards are the whole " +
+      "vocabulary; the difficulty comes from how they are arranged.",
+
+      "It is also the project where the paper trail is the point. It went through mood " +
       "boarding, a designed set of five escalating challenges with trigger-based setups, " +
       "asset implementation planning, and two documented rounds of playtesting and revision.",
 
@@ -287,13 +291,21 @@ window.PROJECTS = [
       "Five escalating challenges designed, playtested and revised across two documented rounds."
     ],
     tags: ["2D Platformer", "Level Design", "Playtesting", "Design Documentation"],
-    cover: "assets/img/ghost-creature.png",
+    cover: "assets/img/ghost/cover.png",
     media: [
-      { type: "image", src: "assets/img/ghost-creature.png", caption: "Character concept" }
-      // TODO: add gameplay screenshots and a short clip.
+      { type: "image", src: "assets/img/ghost/cover.png",         caption: "Scaling a spiked column — wall contact is the core risk in every challenge" },
+      { type: "image", src: "assets/img/ghost/level-descent.png",  caption: "Stepped descent, with collectibles placed off the safe path" },
+      { type: "image", src: "assets/img/ghost/level-climb.png",    caption: "Vertical climb into a hazard ceiling" },
+      { type: "image", src: "assets/img/ghost/level-gap.png",      caption: "Gap crossing over a spike run" },
+      { type: "image", src: "assets/img/ghost/level-flag.png",     caption: "Checkpoint flag ending a challenge segment" },
+      { type: "image", src: "assets/img/ghost/moodboard.png",      caption: "Mood board and colour palettes — the cosmic reference the art direction came from" },
+      { type: "image", src: "assets/img/ghost/concept.png",        caption: "Character concept" }
+      // TODO: a short gameplay clip would beat any of these stills. 20 seconds is enough.
     ],
-    links: [],
-    status: ["Needs media"]
+    links: [
+      { label: "Download on itch.io", href: "https://mintchocodino.itch.io/ghost-game" }
+    ],
+    status: ["Download"]
   },
 
   /* ===================================================================== */
