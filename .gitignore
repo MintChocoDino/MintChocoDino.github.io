@@ -13,3 +13,6 @@ Logs/
 UserSettings/
 *.csproj
 *.sln
+
+# Working notes live in the Resonance vault, not in this public repo
+CONTENT-NEEDED.md

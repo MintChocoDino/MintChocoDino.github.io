@@ -124,7 +124,7 @@ window.PROJECTS = [
     media: [
       // TODO: the one shot still missing is the experience RUNNING — a blindfolded
       // participant reaching for a wall, with the projection visible behind them.
-      // See CONTENT-NEEDED.md.
+      // See "Content Needed" in the Resonance vault, Odyssey/Landing Page/.
       { type: "image", src: "assets/img/labyrinth/props-final.jpg",     caption: "The finished wearables — helmet, gauntlets and sword. The white spheres are retroreflective markers the Qualisys rig tracks. Props fabricated by the team." },
       { type: "image", src: "assets/img/labyrinth/gauntlet-joycons.jpg", caption: "Joy-Cons fitted into the left and right gauntlet shells — the hardware my haptics code drives" },
       { type: "image", src: "assets/img/labyrinth/helmet-build.jpg",     caption: "The helmet under construction. It covers the eyes completely; the player never sees the maze" },
@@ -186,28 +186,38 @@ window.PROJECTS = [
     role: "Solo developer",
     team: "Solo",
     summary:
-      "An autonomous space combat simulation — AI ships hunt each other through an " +
-      "asteroid field with no player involved.",
+      "An ambient generative piece — autonomous ships fight through an asteroid field " +
+      "with nobody playing. Built to be left running.",
     body: [
-      "TODO — replace with your own description. From the source, this spawns AI ships and " +
-      "asteroids and runs laser combat and explosions autonomously, as a generative visual " +
-      "piece rather than a playable game. Correct me if that is wrong."
+      "8-Bit Eye Candy is closer to a screensaver than a game. Ships spawn, hunt each " +
+      "other through a field of wireframe asteroids, fire, explode, and are replaced. " +
+      "There are no controls, no player and nothing to win — it is meant to be left " +
+      "running in the corner of a screen and glanced at.",
+
+      "That non-interactivity is the design constraint rather than a limitation. " +
+      "Everything on screen has to keep itself going: ships acquire their own targets " +
+      "and navigate on their own, and the spawners keep the field populated as objects " +
+      "are destroyed, so the piece never runs down or settles into a static frame."
     ],
     built: [
-      "Autonomous AI ship behaviour — target acquisition, navigation and firing.",
-      "Asteroid and ship spawners that keep the scene populated as objects are destroyed.",
+      "Autonomous AI ship behaviour — target acquisition, navigation and firing, with no player input anywhere in the loop.",
+      "Asteroid and ship spawners that keep the scene populated as objects are destroyed, so the piece sustains itself indefinitely.",
       "Projectile and collision system with explosion effects."
     ],
-    tags: ["Generative", "AI Agents", "Visual Systems"],
+    tags: ["Generative", "Ambient", "AI Agents", "Visual Systems"],
     cover: "assets/img/eyecandy/cover.png",
     media: [
-      // TODO: paste your YouTube video ID here and this becomes the first thing
-      // on the page. The 380MB source file is too large to commit.
-      // { type: "youtube", src: "YOUR_VIDEO_ID" },
-      { type: "image", src: "assets/img/eyecandy/cover.png", caption: "AI ships and wireframe asteroids mid-engagement" }
+      // TODO: WebGL build is on itch but the page is not public yet, so there is no
+      // embed URL to use. Once the itch project is set to Public with the HTML build
+      // playable in browser, take the URL from itch's "Embed" options — it looks like
+      // https://itch.io/embed-upload/1234567?color=0d0f11 — and uncomment this line.
+      // Tick "automatically start on page load" on itch: this piece is ambient and
+      // should never sit behind a click-to-play splash.
+      // { type: "itch", src: "https://itch.io/embed-upload/0000000?color=0d0f11", width: 960, height: 600 },
+      { type: "image", src: "assets/img/eyecandy/cover.png", caption: "Ships and wireframe asteroids mid-engagement" }
     ],
     links: [],
-    status: ["Video pending"]
+    status: ["Ambient"]
   },
 
   /* ===================================================================== */

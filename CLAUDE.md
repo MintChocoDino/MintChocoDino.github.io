@@ -65,5 +65,10 @@ WebGL builds go on **itch.io** and are iframed in, for the same reason.
 
 ## Open items
 
-`CONTENT-NEEDED.md` is the live checklist of gaps, tiered by urgency. Keep it current
-when something gets filled in.
+The live checklist of gaps is deliberately **not in this repo** — it went public for
+GitHub Pages, and the checklist is candid about what is unfinished. It lives in the
+Resonance vault instead:
+
+    Odyssey/Landing Page/Content Needed.md
+
+Keep it current when something gets filled in.
