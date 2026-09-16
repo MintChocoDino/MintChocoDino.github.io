@@ -83,41 +83,56 @@ window.PROJECTS = [
     featured: true,
     year: "2026",
     engine: "Unity 6 · C# · Qualisys QTM · Joy-Con",
-    role: "TODO — your role",
-    team: "TODO — solo or team size",
+    role: "Gameplay developer / engineer",
+    team: "Team project · Laboratory for Immersive Media, UT Austin",
     summary:
-      "A physical-space maze experience where a full-body motion-capture volume is the " +
-      "controller and a haptic gauntlet is the feedback channel.",
+      "A blind maze, navigated for real. Players are blindfolded by a tracked helmet and " +
+      "find their way through a virtual labyrinth using only spatial audio and haptics, " +
+      "while an audience watches on a projector.",
     body: [
-      "Labyrinth moves the maze out of the screen and into the room. A Qualisys optical " +
-      "motion-capture system streams the player's real position into Unity in real time, " +
-      "so walking across the physical floor is how you move through a maze that only " +
-      "exists in software.",
+      "Labyrinth is a live-audience installation built for UT Austin's Laboratory for " +
+      "Immersive Media. A participant wears a sculpted Greek helmet that covers their " +
+      "eyes and a gauntlet on each arm. All three are tracked by a Qualisys optical " +
+      "motion-capture rig, which streams 6DOF data into Unity as `head`, `left` and " +
+      "`right`.",
 
-      "The player wears a gauntlet built around Joy-Con hardware. When they walk into a " +
-      "virtual wall or an enemy closes in, the gauntlet is what tells them — the feedback " +
-      "arrives through touch rather than through a display. Unity also drives the room " +
-      "itself over OSC, so physical lighting responds to what is happening in the maze.",
+      "They cannot see anything. The maze exists only in software, and the only way to " +
+      "find its walls is to reach out and touch them: raycasts run from the helmet to " +
+      "each gauntlet, and when one intersects a wall the Joy-Con strapped inside that " +
+      "gauntlet rumbles and a sound fires from that wall's position through the lab's " +
+      "spatial audio system. You learn the room with your hands and your ears.",
 
-      "TODO — add a sentence about the exhibition or course context, and what you learned " +
-      "about designing for a space instead of a screen."
+      "Touching a wall has a cost. A Minotaur roams the maze in a passive wander state, " +
+      "and holding contact with a wall too long alerts it to your position — so the only " +
+      "way to navigate is also the thing that gets you caught. The audience watches the " +
+      "whole hunt play out on a full-screen projection that the player never sees.",
+
+      "I was the primary gameplay developer, responsible for turning the streamed mocap " +
+      "data into something playable."
     ],
     built: [
-      "Real-time integration with Qualisys Track Manager, mapping live optical mocap coordinates into Unity world space so physical movement drives the player.",
-      "Haptic gauntlet driver on Joy-Con hardware — collision events in the virtual maze are translated into rumble patterns the player feels on their arm.",
-      "Procedural maze generator producing the layout, with a map display for orientation and a win condition.",
-      "Enemy AI that pursues the player through the generated maze.",
-      "OSC sender that broadcasts game state to external hardware, driving physical lighting in the installation space.",
-      "Lighting controller and custom Unity editor tooling (audio tuner, tile/wall material editor) so the installation is tunable on site without code changes."
+      "Gauntlet collision system — raycasts from the tracked helmet to each tracked gauntlet detect wall contact per hand, driving Joy-Con rumble on the correct side and moving a spatial audio source to the exact hit point so the wall sounds where it physically is.",
+      "Minotaur AI as a two-state machine on Unity's AI Navigation package: a passive wander that picks random reachable NavMesh destinations, and an alerted chase triggered by a grace timer that drains while the player holds wall contact and resets when they pull away.",
+      "Distinct passive and alerted audio for the Minotaur, so the audience and the blindfolded player both hear the state change.",
+      "Game manager owning start, win, loss and restart states, coordinating the enemy, the projection display and the lighting response on every transition.",
+      "The projected audience view — what spectators see of a run the player is experiencing blind.",
+      "Built the virtual maze the physical space maps onto.",
+      "Local playback workflow: development ran against recorded .qtm takes streamed as if live, so gameplay could be built and tested without booking the mocap lab."
     ],
-    tags: ["Motion Capture", "Haptics", "Physical Computing", "OSC", "Procedural Generation", "Installation"],
+    tags: ["Motion Capture", "Haptics", "Enemy AI", "Spatial Audio", "Installation", "Physical Computing"],
+    cover: "assets/img/labyrinth/props-final.jpg",
     media: [
-      // TODO: THIS PROJECT HAS NO MEDIA YET. See CONTENT-NEEDED.md for the shot list.
-      // { type: "youtube", src: "YOUR_VIDEO_ID" },
-      // { type: "image", src: "assets/img/labyrinth/rig.jpg", caption: "The gauntlet" }
+      // TODO: the one shot still missing is the experience RUNNING — a blindfolded
+      // participant reaching for a wall, with the projection visible behind them.
+      // See CONTENT-NEEDED.md.
+      { type: "image", src: "assets/img/labyrinth/props-final.jpg",     caption: "The finished wearables — helmet, gauntlets and sword. The white spheres are retroreflective markers the Qualisys rig tracks. Props fabricated by the team." },
+      { type: "image", src: "assets/img/labyrinth/gauntlet-joycons.jpg", caption: "Joy-Cons fitted into the left and right gauntlet shells — the hardware my haptics code drives" },
+      { type: "image", src: "assets/img/labyrinth/helmet-build.jpg",     caption: "The helmet under construction. It covers the eyes completely; the player never sees the maze" },
+      { type: "image", src: "assets/img/labyrinth/crest-sculpt.jpg",     caption: "Crest sculpting in progress" },
+      { type: "image", src: "assets/img/labyrinth/sword-prototype.jpg",  caption: "Early cardboard sword prototype" }
     ],
     links: [],
-    status: ["Needs media"]
+    status: ["Installation"]
   },
 
   /* ===================================================================== */
@@ -374,13 +389,14 @@ window.PROJECTS = [
     featured: false,
     year: "2025",
     engine: "Arduino · Physical computing",
-    role: "Solo",
-    team: "Solo",
+    role: "TODO — your role on the team",
+    team: "Team project · UT Austin",
     summary:
-      "An Arduino-driven physical device — hardware, sensing and enclosure built end to end.",
+      "An Arduino-based product built with peers to solve a specific user problem — " +
+      "hardware, sensing and enclosure end to end.",
     body: [
-      "TODO — describe what the Brotivator 5000 actually does, what sensors and actuators " +
-      "it uses, and what problem or joke it was built around. You have a lot of build " +
+      "TODO — describe what the Brotivator 5000 actually does, what user problem it was " +
+      "built around, and what sensors and actuators it uses. You have a lot of build " +
       "footage for this one; pick the clearest twenty seconds."
     ],
     built: [
