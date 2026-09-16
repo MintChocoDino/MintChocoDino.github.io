@@ -282,7 +282,7 @@ window.PROJECTS = [
     year: "2024",
     engine: "Unity 2021 · C#",
     role: "Designer / developer",
-    team: "TODO — solo or team",
+    team: "Solo",
     summary:
       "A 2D platformer set in a cosmic underworld, taken through a full design process — " +
       "mood boards, challenge design, playtesting rounds and documented revisions.",
