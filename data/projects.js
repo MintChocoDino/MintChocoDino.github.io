@@ -199,13 +199,15 @@ window.PROJECTS = [
       "Projectile and collision system with explosion effects."
     ],
     tags: ["Generative", "AI Agents", "Visual Systems"],
+    cover: "assets/img/eyecandy/cover.png",
     media: [
-      // TODO: the source video is 380MB — too large for this repo.
-      // Upload it to YouTube (unlisted is fine) and paste the video ID here:
-      // { type: "youtube", src: "YOUR_VIDEO_ID" }
+      // TODO: paste your YouTube video ID here and this becomes the first thing
+      // on the page. The 380MB source file is too large to commit.
+      // { type: "youtube", src: "YOUR_VIDEO_ID" },
+      { type: "image", src: "assets/img/eyecandy/cover.png", caption: "AI ships and wireframe asteroids mid-engagement" }
     ],
     links: [],
-    status: ["Needs media"]
+    status: ["Video pending"]
   },
 
   /* ===================================================================== */
@@ -376,7 +378,12 @@ window.PROJECTS = [
       "TODO — what you wrote, and what you produced."
     ],
     tags: ["Narrative Design", "Screenwriting", "Animation"],
-    media: [],
+    cover: "assets/img/narrative/animatic.png",
+    media: [
+      // TODO: paste the cutscene's YouTube video ID here.
+      // { type: "youtube", src: "YOUR_VIDEO_ID" },
+      { type: "image", src: "assets/img/narrative/animatic.png", caption: "Animatic frame from the cutscene — rough pass, staging the shot before final art" }
+    ],
     links: [],
     status: ["Writing"]
   },
