@@ -665,6 +665,47 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .media__hint strong { color: var(--accent); font-weight: 500; }
 
+/* Readable sample of written work. Serif and a comfortable measure on purpose:
+   this block is meant to be read, not scanned like the rest of the page. */
+.excerpt {
+  margin: 0;
+  padding: 26px clamp(20px, 4vw, 34px);
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--accent-line);
+  background: var(--bg-inset);
+}
+.excerpt__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.excerpt__label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.excerpt__meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--fg-dim);
+}
+.excerpt p {
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--fg-muted);
+  max-width: 62ch;
+  margin: 0 0 1em;
+}
+.excerpt p:last-child { margin-bottom: 0; }
+
 /* detail content columns */
 .proj-body {
   display: grid;

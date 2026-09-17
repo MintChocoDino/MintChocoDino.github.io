@@ -90,6 +90,24 @@ window.PF_DETAIL = function () {
         );
         break;
 
+      // A readable sample of written work. On a writing project the prose IS the
+      // artefact, and a screenshot of a PDF is not a substitute for reading it.
+      // m.text is an array of paragraphs, m.label names the piece and m.meta its
+      // form. No frame() — this is type, not a picture of type.
+      case "excerpt":
+        inner =
+          '<blockquote class="excerpt">' +
+            (has(m.label)
+              ? '<div class="excerpt__head"><span class="excerpt__label">' + esc(m.label) + "</span>" +
+                (has(m.meta) ? '<span class="excerpt__meta">' + esc(m.meta) + "</span>" : "") +
+                "</div>"
+              : "") +
+            (m.text || []).map(function (para) {
+              return "<p>" + esc(para) + "</p>";
+            }).join("") +
+          "</blockquote>";
+        break;
+
       case "image":
       default:
         inner = frame(
