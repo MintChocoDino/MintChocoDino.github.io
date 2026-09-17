@@ -20,6 +20,9 @@
                  { type:"youtube", src:"VIDEO_ID" }
                  { type:"video",   src:"assets/media/file.mp4", poster:"assets/img/x.png" }
                  { type:"image",   src:"assets/img/x.png", caption:"..." }
+                 { type:"excerpt", label:"Piece name", meta:"Form", text:["para", "para"] }
+                   -> a readable sample of writing, for projects where the prose
+                      is the work. Rendered as type, not as a picture of a page.
      cover     image used on the index card. Omit for a generated placeholder.
      links     array of { label, href }
      status    array of short badges, e.g. ["Playable","Source"]
@@ -147,7 +150,7 @@ window.PROJECTS = [
       "The video below is cut from the progress recordings I sent the team: the grey-box " +
       "prototype in February, the March beta with the Minotaur and spatial audio, and the " +
       "April build with QTM streaming live, the projection view and the win and loss " +
-      "states. The code is from my individual documentation for the project."
+      "states. The full Unity project is on GitHub — everything in Assets/Scripts is mine."
     ],
     built: [
       "Gauntlet collision system — raycasts from the tracked helmet to each tracked gauntlet detect wall contact per hand, driving Joy-Con rumble on the correct side and moving a spatial audio source to the exact hit point so the wall sounds where it physically is.",
@@ -163,9 +166,10 @@ window.PROJECTS = [
     // table: the red is the LightingController reacting to the Minotaur state, which
     // is software, so the card leads with the work rather than the fabrication.
     cover: "assets/img/labyrinth/running-alert.jpg",
-    // Ordered as the data flows: mocap in -> collision -> Minotaur -> a run -> game
-    // states -> projection -> the room -> the hardware. Code screenshots are from the
-    // individual documentation deck and sit next to the system each one implements.
+    // Ordered as the data flows: mocap in -> a run -> game states -> projection ->
+    // the room -> the hardware.
+    // Screenshots of source code used to sit between these; they came off once the
+    // repo went public, because a screenshot of code is strictly worse than the code.
     // Fabrication-process photos (helmet build, crest, cardboard sword) are still in
     // assets/img/labyrinth/ but off the page: they are the team's work, not this entry's.
     media: [
@@ -178,16 +182,8 @@ window.PROJECTS = [
 
       { type: "image", src: "assets/img/labyrinth/still-qtm-streaming.png",
         caption: "Qualisys Track Manager during a run — the helmet and both gauntlets tracked as 6DOF rigid bodies (head, left, right) and streamed into Unity. This is the input everything below is built on" },
-      { type: "image", src: "assets/img/labyrinth/code-gauntlet-collision.jpg",
-        caption: "Gauntlet collision and haptics. A raycast from the tracked helmet to each tracked gauntlet detects wall contact per hand, fires the Joy-Con rumble on that side, and moves the audio source to the hit point so the wall sounds where it physically is" },
-      { type: "image", src: "assets/img/labyrinth/code-minotaur-ai-1.jpg",
-        caption: "Minotaur AI, part one — lifecycle, and the Passive / Alerted state switch on Unity's NavMeshAgent" },
-      { type: "image", src: "assets/img/labyrinth/code-minotaur-ai-2.jpg",
-        caption: "Minotaur AI, part two — the grace timer that drains while the player holds a wall and resets when they let go, the random NavMesh wander, and the alerted chase with its own audio" },
       { type: "image", src: "assets/img/labyrinth/still-gameplay-map.png",
         caption: "A run in progress. Left: the projected audience view, player and Minotaur in the maze. Right: the Scene view with the map" },
-      { type: "image", src: "assets/img/labyrinth/code-game-manager.jpg",
-        caption: "Game manager — start, caught and restart states, each one driving the enemy, the projected map display and the lighting controller" },
       { type: "image", src: "assets/img/labyrinth/still-projection-start.png",
         caption: "What the audience sees between runs: the projected start screen, with the Scene view beside it" },
 
@@ -198,8 +194,10 @@ window.PROJECTS = [
       { type: "image", src: "assets/img/labyrinth/props-final.jpg",
         caption: "The wearables the team fabricated — helmet, gauntlets with the Joy-Cons inside, and sword. The white spheres are the retroreflective markers the Qualisys rig tracks" }
     ],
-    links: [],
-    status: ["Installation"]
+    links: [
+      { label: "Source on GitHub", href: "https://github.com/MintChocoDino/Labyrinth" }
+    ],
+    status: ["Installation", "Source"]
   },
 
   /* ===================================================================== */
@@ -233,6 +231,9 @@ window.PROJECTS = [
       "Live sorted leaderboard rendering every agent's score and survival status."
     ],
     tags: ["Agent Simulation", "Generative", "p5.js", "Emergent Behaviour"],
+    // Captured mid-round rather than at the win screen: the leaderboard greying out
+    // the dead is the thing worth showing, and an empty grid is not.
+    cover: "assets/img/snake/cover.jpg",
     media: [
       { type: "local", src: "play/snake/index.html", ratio: "16/10" }
     ],
@@ -291,7 +292,10 @@ window.PROJECTS = [
   {
     id: "dots-particles",
     title: "DOTS Particle System",
-    category: "games",
+    // Filed under creative rather than games: there is no game here, and next to
+    // Snake Arena and 8-Bit Eye Candy it reads as what it is — a generative piece
+    // that happens to be an engineering exercise.
+    category: "creative",
     featured: false,
     year: "2026",
     engine: "Unity 6 DOTS · ECS · Burst",
@@ -305,6 +309,10 @@ window.PROJECTS = [
       "particle, particles are entities with component data, and the simulation runs as " +
       "systems over contiguous arrays — the memory layout Burst can actually vectorise.",
 
+      "The recording below is the system running at full field: tens of thousands of " +
+      "particles resolving into a rotating shell, with the structure you can see in it " +
+      "falling out of the simulation rather than being authored.",
+
       "TODO — add your numbers if you measured them: particle count reached, and how that " +
       "compared to the MonoBehaviour approach. Benchmarks are persuasive to engineering " +
       "interviewers."
@@ -315,41 +323,17 @@ window.PROJECTS = [
       "ECS systems driving particle spawning, movement and lifetime over entity queries."
     ],
     tags: ["DOTS / ECS", "Burst", "Performance", "Data-Oriented Design"],
-    media: [],
-    links: [],
-    status: ["Needs media"]
-  },
-
-  /* ===================================================================== */
-  {
-    id: "fps-range",
-    title: "FPS Prototype",
-    category: "games",
-    featured: false,
-    year: "2025",
-    engine: "Unity 6 · C# · URP",
-    role: "Solo developer",
-    team: "Solo",
-    summary:
-      "A compact first-person shooting range — character controller, projectiles and a " +
-      "target spawner, built to get the feel right.",
-    body: [
-      "A small, deliberately scoped prototype focused on feel rather than content: " +
-      "first-person movement and look, jumping, and projectile shooting against targets " +
-      "that respawn.",
-
-      "Because the whole project is under half a megabyte, it is the cheapest thing here " +
-      "to ship as a WebGL build — a good first playable for this site."
+    cover: "assets/img/dots/cover.jpg",
+    media: [
+      // Silent on purpose — the source capture is digital silence (-91dB), and a
+      // technical demo does not need a licensed track to justify itself.
+      // Encoded at CRF 33: a field of hard white points on black is about the worst
+      // case H.264 has, and anything gentler doubled the file for no visible gain.
+      { type: "video", src: "assets/media/dots-particles.mp4", poster: "assets/img/dots/poster.jpg",
+        caption: "The system running — twelve seconds, no audio" }
     ],
-    built: [
-      "First-person character controller built on Unity's Input System — movement, mouse look and jumping.",
-      "Projectile system with bullet prefabs and collision response.",
-      "Target spawner that keeps the range populated."
-    ],
-    tags: ["First-Person Controller", "Game Feel", "Input System"],
-    media: [],
     links: [],
-    status: ["Needs media"]
+    status: ["Video"]
   },
 
   /* ===================================================================== */
@@ -385,14 +369,14 @@ window.PROJECTS = [
       "Five escalating challenges designed, playtested and revised across two documented rounds."
     ],
     tags: ["2D Platformer", "Level Design", "Playtesting", "Design Documentation"],
-    cover: "assets/img/ghost/cover.png",
+    cover: "assets/img/ghost/cover.jpg",
     media: [
-      { type: "image", src: "assets/img/ghost/cover.png",         caption: "Scaling a spiked column — wall contact is the core risk in every challenge" },
+      { type: "image", src: "assets/img/ghost/cover.jpg",         caption: "Scaling a spiked column — wall contact is the core risk in every challenge" },
       { type: "image", src: "assets/img/ghost/level-descent.png",  caption: "Stepped descent, with collectibles placed off the safe path" },
       { type: "image", src: "assets/img/ghost/level-climb.png",    caption: "Vertical climb into a hazard ceiling" },
       { type: "image", src: "assets/img/ghost/level-gap.png",      caption: "Gap crossing over a spike run" },
       { type: "image", src: "assets/img/ghost/level-flag.png",     caption: "Checkpoint flag ending a challenge segment" },
-      { type: "image", src: "assets/img/ghost/moodboard.png",      caption: "Mood board and colour palettes — the cosmic reference the art direction came from" },
+      { type: "image", src: "assets/img/ghost/moodboard.jpg",      caption: "Mood board and colour palettes — the cosmic reference the art direction came from" },
       { type: "image", src: "assets/img/ghost/concept.png",        caption: "Character concept" }
       // TODO: a short gameplay clip would beat any of these stills. 20 seconds is enough.
     ],
@@ -410,11 +394,12 @@ window.PROJECTS = [
     featured: false,
     year: "2025",
     engine: "World bible · Collaborative",
-    role: "TODO — which bible(s) you wrote",
-    team: "Team project",
+    role: "Co-author, Technology World Bible — astronomy and communications",
+    team: "Team project · UT Austin",
     summary:
-      "A collaborative world bible for an original setting, covering its science, " +
-      "technology, culture and government as internally consistent systems.",
+      "A collaborative world bible for an original setting. I wrote the astronomy and " +
+      "communications technology of a tidally locked planet, designing each system to " +
+      "hand writers a story hook rather than a rule they had to work around.",
     body: [
       "Eco-Viridis is a constructed world documented across four linked bibles — science, " +
       "technology, culture and society, and government relations. The design premise is " +
@@ -422,16 +407,52 @@ window.PROJECTS = [
       "planet's rock, which then constrains everything downstream: how the world " +
       "physically moves, what technology is possible, and who holds power.",
 
-      "TODO — state clearly which sections you personally wrote. On a team project, being " +
-      "specific about your contribution is what makes it usable as a portfolio piece."
+      "I co-authored the Technology bible with four others and owned two sections of it: " +
+      "astronomy, and information technology and communication. The brief I set myself was " +
+      "that technology in a shared world is a tool for whoever writes in it next. A system " +
+      "that only says what is impossible closes doors. Every rule I wrote was meant to open " +
+      "one.",
+
+      "The planet is tidally locked, so I split astronomy in two along that line. The light " +
+      "side never sees a night sky and cannot do optical astronomy at all, so it reads the " +
+      "cosmos in radio. The dark side, under permanent night, has the better telescopes and " +
+      "uses the stars to navigate — which makes celestial navigation a dark-side skill and " +
+      "an instant reason for a light-side character to need a dark-side guide.",
+
+      "Communications works the same way. The light side has a regional radio network but " +
+      "only at fixed terminals; the dark side is mostly proximal, so news travels slowly and " +
+      "arrives distorted. Data is stored in the same magic-bearing rock the world runs on, " +
+      "read in underground terminals shielded from sunlight, and moved through buried tubes " +
+      "of magic-infused fluid — so archives are literally buried, physically vulnerable, and " +
+      "controlled by whoever can afford the infrastructure."
     ],
     built: [
-      "TODO — list your specific contributions to the world bible."
+      "Astronomy for a tidally locked planet — radio astronomy on the sunward side, optical astronomy and celestial navigation on the dark side, each an asymmetry a writer can build a plot on.",
+      "Information technology and communication across both hemispheres: fixed-terminal radio networks, handheld short-range transmitters, and the proximal, rumour-prone communication of the dark side.",
+      "Data storage and transmission built on the setting's own magic system — information held in the gravitational state of moonstone, read in sun-shielded underground terminals, carried by buried conduits of magic-infused fluid.",
+      "Worked inside a five-person section split on the Technology bible, cross-referencing against the Science, Culture & Society and Government Relations bibles so the technology stayed consistent with rules other people had written."
     ],
     tags: ["World Building", "Systems Design", "Collaborative Writing"],
-    media: [],
-    links: [],
-    status: ["Writing"]
+    cover: "assets/img/ecoviridis/cover.jpg",
+    media: [
+      { type: "image", src: "assets/img/ecoviridis/miro-board.jpg",
+        caption: "The shared Miro board the world was built on — brainstorming clusters, the team's section split, and the four world bibles with their mood boards. Team workspace" },
+
+      { type: "excerpt", label: "Astronomy", meta: "Technology World Bible — my section",
+        text: [
+          "Since the light side of the planet is tidally locked with the sun, astronomy on the light side of the planet is unrecognizable to the normal conception of astronomy. Instead of using telescopes to look at the night sky which capture only visible light, astronomers on the light of the planet use radio telescopes to capture radio waves that appear in the cosmos.",
+          "Engulfed in constant night, astronomy is an important part of civilization on the dark side of the planet. The rare nomad or explorer of the dark side uses the stars to create maps to assist in navigating the darkened half of the planet. Compared to most other forms of technology on this side of the planet, telescopes and other instruments that are used to observe the stars are more advanced, giving astronomers tools to observe cosmological events and understand how gravity behaves."
+        ] },
+
+      { type: "excerpt", label: "Information Technology & Communication", meta: "Technology World Bible — my section",
+        text: [
+          "The magical rocks can store information through analyzing the gravitational state of its subatomic particles. If properly contained, this information can be preserved nearly indefinitely, making storing and transporting large amounts of data possible with these rocks. Information can be uploaded and read in specially built terminals underground so as to avoid any interference with the sun. Underground networks of tubes filled with fluid infused with magic allow the data to be transmitted. This practice is primarily only done by the light side of the planet, and using this method of data manipulation is only performed by larger, more influential bodies of civilization, like governments."
+        ] }
+    ],
+    links: [
+      { label: "The world on Miro", href: "https://miro.com/app/board/uXjVKjTG50Y=/" }
+    ],
+    status: ["Writing", "Team"]
   },
 
   /* ===================================================================== */
@@ -443,26 +464,76 @@ window.PROJECTS = [
     year: "2024–2025",
     engine: "Screenwriting · Game narrative",
     role: "Writer",
-    team: "TODO",
+    team: "Solo",
     summary:
-      "Original scripts and game narrative — including Over Yonder and Deliverance — plus " +
-      "an animated cutscene produced end to end.",
+      "Original scripts and game narrative — the Conquest opening cutscene, produced end " +
+      "to end, plus the Over Yonder narrative bible and the short fiction Deliverance.",
     body: [
-      "TODO — write a short paragraph on each piece: what Over Yonder is, what Deliverance " +
-      "is, and what the animated cutscene was made for. Two or three sentences each."
+      "Three pieces, each doing a different job. Conquest is a produced opening cutscene: " +
+      "a 15th-century Spanish galleon torn apart by a storm, and a captain who grabs a " +
+      "glowing Mayan gem as the ship explodes and is pulled into the sky by something that " +
+      "is not weather. I wrote it as a shooting script and took it through to a finished, " +
+      "edited film — the video below is the result.",
+
+      "Over Yonder is a narrative bible for a game about growing out of adolescence. A boy's " +
+      "father is lost at sea and the boy goes looking for him. Every character and location " +
+      "in it is an explicit stand-in for something on that journey: the siren is temptation, " +
+      "the false friend is hedonism, the undead are the small problems that only overwhelm " +
+      "you all at once, and the cave is Plato's, literally. The point of the document is " +
+      "that the emotional map and the world map are the same map.",
+
+      "Deliverance is short prose rather than game writing — a sci-fi piece about M0004, " +
+      "born into forced labour on a planet the ruling Union is terraforming into a monument " +
+      "to itself. It is the one in the set where the writing has to carry everything, with " +
+      "no art, no engine and no interactivity to lean on."
     ],
     built: [
-      "TODO — what you wrote, and what you produced."
+      "Conquest — wrote the opening cutscene as a formatted shooting script, then produced it end to end: shot list, animatic, art direction, edit and title cards.",
+      "Over Yonder — a narrative bible covering premise, the full character roster, settings mapped to story beats, and the branching first choice the player faces.",
+      "Deliverance — an original short story, taken from working draft to final draft.",
+      "A consistent method across all three: decide what a piece is about first, then make every character, location and system in it carry some of that meaning."
     ],
-    tags: ["Narrative Design", "Screenwriting", "Animation"],
-    cover: "assets/img/narrative/animatic.png",
+    tags: ["Narrative Design", "Screenwriting", "Short Fiction", "Animation"],
+    cover: "assets/img/narrative/cover.jpg",
     media: [
-      // TODO: paste the cutscene's YouTube video ID here.
-      // { type: "youtube", src: "YOUR_VIDEO_ID" },
-      { type: "image", src: "assets/img/narrative/animatic.png", caption: "Animatic frame from the cutscene — rough pass, staging the shot before final art" }
+      { type: "youtube", src: "WgTmq2ErULU",
+        caption: "Conquest — the opening cutscene, written and produced end to end" },
+
+      { type: "excerpt", label: "Conquest", meta: "Opening cutscene — shooting script",
+        text: [
+          "EXT. ATLANTIC OCEAN — NIGHT. Thunder roars across a black, heaving sea. A 15th-century Spanish galleon battles against towering waves. Rain lashes the deck. Lanterns swing wildly, casting frantic shadows.",
+          "AT THE HELM — CAPTAIN PABLO DEL MAR grips the great wooden wheel, water pouring down his weathered face. He shouts above the storm: \"Hold the lines! Secure the mainsail! Brace yourselves, men — she'll not take us yet!\"",
+          "INT. STERNCASTLE — SAME TIME. The sterncastle rocks violently. Books, maps, and navigational tools crash from shelves. A large chest slides across the floor and bursts open — gold coins and Mayan jewels spill across the planks. Amidst the treasure, one GEM begins to emit a faint, eerie glow."
+        ] },
+
+      { type: "image", src: "assets/img/narrative/conquest-helm.jpg",
+        caption: "Captain Del Mar at the wheel — the storm sequence that opens the film" },
+      { type: "image", src: "assets/img/narrative/conquest-gem.jpg",
+        caption: "The chest bursts open and the gem starts to glow. The object the whole sequence turns on" },
+      { type: "image", src: "assets/img/narrative/conquest-storyboard.jpg",
+        caption: "Storyboard pass — staging the explosion before any final art existed" },
+      { type: "image", src: "assets/img/narrative/animatic.jpg",
+        caption: "Animatic frame — rough pass, blocking the shot for timing" },
+
+      { type: "excerpt", label: "Deliverance", meta: "Short fiction — opening",
+        text: [
+          "Three sequential buzzes, deafening to the ears forced to listen — that was the sound of the alarm that conducted every aspect of life for people of Deplora. M0004, a descendant of a political prisoner sent to Deplora six-hundred and sixty years ago — though he doesn't know this — opened his eyes to the same blaring alarm he's heard his entire life. The alarm looped as he stared at the plastic shell of his sleeping pod, waiting for the lock to unlatch, freeing him into a caged world.",
+          "\"May the work of today fulfill you, brother,\" J1314 proclaimed.",
+          "\"May the work of today fulfill you, brother,\" M0004 repeated back — a creed mindlessly parroted after it had been ingrained in the Deploran minds since leaving their artificial wombs at age seven."
+        ] },
+
+      { type: "excerpt", label: "Over Yonder", meta: "Narrative bible — character design",
+        text: [
+          "The siren: The embodiment of temptation, the Siren becomes an obstacle that the boy must face on his journey. She lures sailors in with lust song and feeds on those who are weak and lack self-discipline.",
+          "The false friend: Peter Pan type character that you meet along the journey. Ultimately scared of growing up and what that might mean, doesn't want to face the responsibility of life and would rather indulge in temporary pleasures. He's the embodiment of hedonism.",
+          "The undead: The undead are representative of speed bumps in life. Little roadblocks that are easy to deal with one at a time but if a plethora of these small problems all emerge at once it can be overwhelming.",
+          "The storm: The storm is the lowest point in the journey. It is the abyss in the hero's journey. It is a challenge that the boy must face alone and it is the place where his transformation into independence takes place."
+        ] }
     ],
-    links: [],
-    status: ["Writing"]
+    links: [
+      { label: "Watch Conquest on YouTube", href: "https://youtu.be/WgTmq2ErULU" }
+    ],
+    status: ["Writing", "Video"]
   },
 
   /* ===================================================================== */
@@ -476,20 +547,41 @@ window.PROJECTS = [
     role: "TODO — your role on the team",
     team: "Team project · UT Austin",
     summary:
-      "An Arduino-based product built with peers to solve a specific user problem — " +
-      "hardware, sensing and enclosure end to end.",
+      "A wearable helmet that listens to the room and sprays you in the face when the " +
+      "party gets too quiet. An Arduino build, and a joke taken entirely seriously.",
     body: [
-      "TODO — describe what the Brotivator 5000 actually does, what user problem it was " +
-      "built around, and what sensors and actuators it uses. You have a lot of build " +
-      "footage for this one; pick the clearest twenty seconds."
+      "The brief was to build an Arduino product around a specific user problem. The " +
+      "problem we picked: you are at an event that has died, and nobody will admit it. " +
+      "The Brotivator 5000 is a helmet with a clear visor, a sound sensor and a water " +
+      "jet. It listens for the noise of a room actually enjoying itself, and if it stops " +
+      "hearing any, it sprays the wearer in the face. You have to keep making noise to " +
+      "avoid getting hit, which is the joke and also, technically, the solution.",
+
+      "It is a comedy product, but nothing about the build was a joke. The electronics — " +
+      "breadboard, battery, sensor and pump — are mounted inside the visor where the " +
+      "wearer can see them, which is the whole aesthetic: the threat is visible the entire " +
+      "time you are wearing it. The team also pitched it as a straight-faced infomercial, " +
+      "which is what the video below is.",
+
+      "Playtesting was mostly people understanding the concept immediately and then asking " +
+      "to try it. The one piece of critical feedback we acted on was a safety issue a " +
+      "tester raised about the spray, which we designed around before the final build."
     ],
     built: [
-      "TODO — circuit, firmware, enclosure, and anything that went wrong and got fixed."
+      "TODO — your specific part of the build: circuit, firmware, enclosure, or the infomercial. The page can't say what you personally did until you tell me."
     ],
-    tags: ["Arduino", "Physical Computing", "Prototyping"],
-    media: [],
-    links: [],
-    status: ["Needs media"]
+    tags: ["Arduino", "Physical Computing", "Prototyping", "Wearables"],
+    cover: "assets/img/brotivator/cover.jpg",
+    media: [
+      { type: "youtube", src: "FRx8ENo_-tY",
+        caption: "The pitch, played straight — the team's infomercial for the Brotivator 5000" },
+      { type: "image", src: "assets/img/brotivator/build-electronics.jpg",
+        caption: "Inside the visor — breadboard, 9V supply, sound sensor and wiring, mounted where the wearer can watch it" }
+    ],
+    links: [
+      { label: "Watch on YouTube", href: "https://youtu.be/FRx8ENo_-tY" }
+    ],
+    status: ["Video", "Team"]
   },
 
   /* ===================================================================== */
