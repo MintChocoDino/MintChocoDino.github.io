@@ -544,7 +544,7 @@ window.PROJECTS = [
     featured: false,
     year: "2025",
     engine: "Arduino · Physical computing",
-    role: "TODO — your role on the team",
+    role: "Build, firmware and the film",
     team: "Team project · UT Austin",
     summary:
       "A wearable helmet that listens to the room and sprays you in the face when the " +
@@ -557,24 +557,26 @@ window.PROJECTS = [
       "hearing any, it sprays the wearer in the face. You have to keep making noise to " +
       "avoid getting hit, which is the joke and also, technically, the solution.",
 
-      "It is a comedy product, but nothing about the build was a joke. The electronics — " +
-      "breadboard, battery, sensor and pump — are mounted inside the visor where the " +
-      "wearer can see them, which is the whole aesthetic: the threat is visible the entire " +
-      "time you are wearing it. The team also pitched it as a straight-faced infomercial, " +
-      "which is what the video below is.",
+      "It is a comedy product, but nothing about the build was a joke. I assembled the " +
+      "wearable and wrote the firmware: the electronics — breadboard, battery, sound " +
+      "sensor and pump — sit inside the visor where the wearer can see them, which is the " +
+      "whole aesthetic. The threat is visible the entire time you have it on. I also " +
+      "wrote, shot and edited the infomercial we pitched it with, which is the video below.",
 
       "Playtesting was mostly people understanding the concept immediately and then asking " +
       "to try it. The one piece of critical feedback we acted on was a safety issue a " +
       "tester raised about the spray, which we designed around before the final build."
     ],
     built: [
-      "TODO — your specific part of the build: circuit, firmware, enclosure, or the infomercial. The page can't say what you personally did until you tell me."
+      "Assembled the wearable end to end — the helmet enclosure, the visor housing, and the sensor, pump and power mounted inside it.",
+      "Wrote the Arduino firmware: reading the sound sensor, deciding when the room has gone quiet, and triggering the spray.",
+      "Wrote, shot and edited the infomercial the piece was pitched with, which is the video above."
     ],
     tags: ["Arduino", "Physical Computing", "Prototyping", "Wearables"],
     cover: "assets/img/brotivator/cover.jpg",
     media: [
       { type: "youtube", src: "FRx8ENo_-tY",
-        caption: "The pitch, played straight — the team's infomercial for the Brotivator 5000" },
+        caption: "The pitch, played straight — the infomercial I wrote, shot and edited for the Brotivator 5000" },
       { type: "image", src: "assets/img/brotivator/build-electronics.jpg",
         caption: "Inside the visor — breadboard, 9V supply, sound sensor and wiring, mounted where the wearer can watch it" }
     ],
