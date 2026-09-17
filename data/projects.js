@@ -66,15 +66,15 @@ window.PROJECTS = [
       // Click-to-play on purpose: it takes keyboard and mouse, and the build is ~27MB over the wire,
       // so it should not start grabbing input the moment the page opens.
       // Singleplayer only — Netcode co-op does not run in WebGL. Page: https://mintchocodino.itch.io/zombits
-      // ratio 16/10 matches the build, it is NOT a stylistic choice. The WebGL template
+      // ratio tracks the BUILD, not taste. The WebGL template
       // hard-codes <canvas width=960 height=600> and only styles .unity-mobile #unity-canvas,
       // so on desktop the canvas is a fixed 960x600 box centred by #unity-container and it
       // does not resize with the frame. .media__frame has overflow:hidden, so any frame
       // shorter or narrower than 960x600 simply crops the HUD off at the corners.
-      // 16/10 is the canvas aspect, so at a column wider than 960px nothing is cut.
-      // The real fix is a responsive Unity template plus a Canvas Scaler; this just stops
-      // the page from cropping a build that cannot resize itself.
-      { type: "itch", src: "https://itch.io/embed-upload/19270802?color=0d0f11", width: 960, height: 600, ratio: "16/10",
+      // Set to 2.14/1 on request, ahead of a build whose canvas is 1040x486. Until that build
+      // is uploaded the canvas is still 960x600 and the frame crops ~55px off the top and bottom.
+      // The real fix is a responsive Unity template plus a Canvas Scaler.
+      { type: "itch", src: "https://itch.io/embed-upload/19270802?color=0d0f11", width: 1040, height: 486, ratio: "2.14/1",
         caption: "Zombits 3.0 running in the browser — singleplayer. WASD to move, mouse to aim, F to interact, R to reload. Fullscreen button, bottom right" },
       { type: "video", src: "assets/media/zombits-gameplay.mp4", poster: "assets/img/zombits/gameplay.png" },
       { type: "image", src: "assets/img/zombits/title.png",    caption: "Title screen" },
