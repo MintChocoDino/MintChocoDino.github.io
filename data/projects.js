@@ -116,18 +116,22 @@ window.PROJECTS = [
     featured: true,
     year: "2026",
     engine: "Unity 6 · C# · Qualisys QTM · Joy-Con",
-    role: "Gameplay developer / engineer",
+    role: "Primary gameplay developer / engineer",
     team: "Team project · Laboratory for Immersive Media, UT Austin",
     summary:
-      "A blind maze, navigated for real. Players are blindfolded by a tracked helmet and " +
-      "find their way through a virtual labyrinth using only spatial audio and haptics, " +
-      "while an audience watches on a projector.",
+      "A blind maze, navigated for real. A tracked helmet blindfolds the player, who " +
+      "finds the walls by touch and sound while an audience watches the hunt on a " +
+      "projector. I built the software: the mocap-to-gameplay pipeline, the haptics, " +
+      "the Minotaur AI and the game states.",
     body: [
       "Labyrinth is a live-audience installation built for UT Austin's Laboratory for " +
       "Immersive Media. A participant wears a sculpted Greek helmet that covers their " +
       "eyes and a gauntlet on each arm. All three are tracked by a Qualisys optical " +
       "motion-capture rig, which streams 6DOF data into Unity as `head`, `left` and " +
-      "`right`.",
+      "`right`. The team fabricated the wearables and dressed the room. I was the " +
+      "primary gameplay developer, and everything that happens in software once that " +
+      "data arrives is my work — the collision and haptics, the Minotaur, the game " +
+      "states, the audience projection and the virtual maze itself.",
 
       "They cannot see anything. The maze exists only in software, and the only way to " +
       "find its walls is to reach out and touch them: raycasts run from the helmet to " +
@@ -140,8 +144,10 @@ window.PROJECTS = [
       "way to navigate is also the thing that gets you caught. The audience watches the " +
       "whole hunt play out on a full-screen projection that the player never sees.",
 
-      "I was the primary gameplay developer, responsible for turning the streamed mocap " +
-      "data into something playable."
+      "The video below is cut from the progress recordings I sent the team: the grey-box " +
+      "prototype in February, the March beta with the Minotaur and spatial audio, and the " +
+      "April build with QTM streaming live, the projection view and the win and loss " +
+      "states. The code is from my individual documentation for the project."
     ],
     built: [
       "Gauntlet collision system — raycasts from the tracked helmet to each tracked gauntlet detect wall contact per hand, driving Joy-Con rumble on the correct side and moving a spatial audio source to the exact hit point so the wall sounds where it physically is.",
@@ -153,16 +159,44 @@ window.PROJECTS = [
       "Local playback workflow: development ran against recorded .qtm takes streamed as if live, so gameplay could be built and tested without booking the mocap lab."
     ],
     tags: ["Motion Capture", "Haptics", "Enemy AI", "Spatial Audio", "Installation", "Physical Computing"],
-    cover: "assets/img/labyrinth/props-final.jpg",
+    // Cover is the piece RUNNING under the alert lighting rather than the props on a
+    // table: the red is the LightingController reacting to the Minotaur state, which
+    // is software, so the card leads with the work rather than the fabrication.
+    cover: "assets/img/labyrinth/running-alert.jpg",
+    // Ordered as the data flows: mocap in -> collision -> Minotaur -> a run -> game
+    // states -> projection -> the room -> the hardware. Code screenshots are from the
+    // individual documentation deck and sit next to the system each one implements.
+    // Fabrication-process photos (helmet build, crest, cardboard sword) are still in
+    // assets/img/labyrinth/ but off the page: they are the team's work, not this entry's.
     media: [
-      // TODO: the one shot still missing is the experience RUNNING — a blindfolded
-      // participant reaching for a wall, with the projection visible behind them.
-      // See "Content Needed" in the Resonance vault, Odyssey/Landing Page/.
-      { type: "image", src: "assets/img/labyrinth/props-final.jpg",     caption: "The finished wearables — helmet, gauntlets and sword. The white spheres are retroreflective markers the Qualisys rig tracks. Props fabricated by the team." },
-      { type: "image", src: "assets/img/labyrinth/gauntlet-joycons.jpg", caption: "Joy-Cons fitted into the left and right gauntlet shells — the hardware my haptics code drives" },
-      { type: "image", src: "assets/img/labyrinth/helmet-build.jpg",     caption: "The helmet under construction. It covers the eyes completely; the player never sees the maze" },
-      { type: "image", src: "assets/img/labyrinth/crest-sculpt.jpg",     caption: "Crest sculpting in progress" },
-      { type: "image", src: "assets/img/labyrinth/sword-prototype.jpg",  caption: "Early cardboard sword prototype" }
+      // 29.9s from three narrated progress recordings (Feb 25, Mar 30, Apr 7 2026), cut
+      // silent under music so the team-update narration stays private. Each video is a
+      // full-desktop Unity Editor capture, so every segment carries its own crop.
+      // Music is CC BY 4.0 and the credit in the caption is the licence condition.
+      { type: "video", src: "assets/media/labyrinth-devlog.mp4", poster: "assets/img/labyrinth/devlog-poster.png",
+        caption: "Thirty seconds across three months of my progress recordings — the February grey-box prototype, the March beta with the Minotaur and spatial audio, and the April build with QTM streaming live. Music: \"Dark Walk\" by Kevin MacLeod (incompetech.com), CC BY 4.0" },
+
+      { type: "image", src: "assets/img/labyrinth/still-qtm-streaming.png",
+        caption: "Qualisys Track Manager during a run — the helmet and both gauntlets tracked as 6DOF rigid bodies (head, left, right) and streamed into Unity. This is the input everything below is built on" },
+      { type: "image", src: "assets/img/labyrinth/code-gauntlet-collision.jpg",
+        caption: "Gauntlet collision and haptics. A raycast from the tracked helmet to each tracked gauntlet detects wall contact per hand, fires the Joy-Con rumble on that side, and moves the audio source to the hit point so the wall sounds where it physically is" },
+      { type: "image", src: "assets/img/labyrinth/code-minotaur-ai-1.jpg",
+        caption: "Minotaur AI, part one — lifecycle, and the Passive / Alerted state switch on Unity's NavMeshAgent" },
+      { type: "image", src: "assets/img/labyrinth/code-minotaur-ai-2.jpg",
+        caption: "Minotaur AI, part two — the grace timer that drains while the player holds a wall and resets when they let go, the random NavMesh wander, and the alerted chase with its own audio" },
+      { type: "image", src: "assets/img/labyrinth/still-gameplay-map.png",
+        caption: "A run in progress. Left: the projected audience view, player and Minotaur in the maze. Right: the Scene view with the map" },
+      { type: "image", src: "assets/img/labyrinth/code-game-manager.jpg",
+        caption: "Game manager — start, caught and restart states, each one driving the enemy, the projected map display and the lighting controller" },
+      { type: "image", src: "assets/img/labyrinth/still-projection-start.png",
+        caption: "What the audience sees between runs: the projected start screen, with the Scene view beside it" },
+
+      { type: "image", src: "assets/img/labyrinth/running-alert.jpg",
+        caption: "A participant mid-run under the alert lighting — helmet on, gauntlets up, feeling for a wall. Photo by the team" },
+      { type: "image", src: "assets/img/labyrinth/showcase-playtest.jpg",
+        caption: "Playtest at the AET Showcase, with the audience watching the projection. Photo by the team" },
+      { type: "image", src: "assets/img/labyrinth/props-final.jpg",
+        caption: "The wearables the team fabricated — helmet, gauntlets with the Joy-Cons inside, and sword. The white spheres are the retroreflective markers the Qualisys rig tracks" }
     ],
     links: [],
     status: ["Installation"]
