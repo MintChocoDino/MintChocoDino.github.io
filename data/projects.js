@@ -369,21 +369,41 @@ window.PROJECTS = [
       "Five escalating challenges designed, playtested and revised across two documented rounds."
     ],
     tags: ["2D Platformer", "Level Design", "Playtesting", "Design Documentation"],
-    cover: "assets/img/ghost/cover.jpg",
+    // Cover is the ember cavern rather than the old deck crop: it is the look the
+    // whole game is built around, and it reads at card size.
+    cover: "assets/img/ghost/cover.png",
+    // Curated down from seven deck screenshots. The stills are frames from a full
+    // playthrough capture, cropped clear of the Unity Editor chrome (the Game view
+    // sits at y 98..698 in a 1280x720 recording) — real gameplay beats the deck's
+    // crops. One design screenshot stays, because the designed-challenge story is
+    // what this entry is actually about.
     media: [
-      { type: "image", src: "assets/img/ghost/cover.jpg",         caption: "Scaling a spiked column — wall contact is the core risk in every challenge" },
-      { type: "image", src: "assets/img/ghost/level-descent.png",  caption: "Stepped descent, with collectibles placed off the safe path" },
-      { type: "image", src: "assets/img/ghost/level-climb.png",    caption: "Vertical climb into a hazard ceiling" },
-      { type: "image", src: "assets/img/ghost/level-gap.png",      caption: "Gap crossing over a spike run" },
-      { type: "image", src: "assets/img/ghost/level-flag.png",     caption: "Checkpoint flag ending a challenge segment" },
-      { type: "image", src: "assets/img/ghost/moodboard.jpg",      caption: "Mood board and colour palettes — the cosmic reference the art direction came from" },
-      { type: "image", src: "assets/img/ghost/concept.png",        caption: "Character concept" }
-      // TODO: a short gameplay clip would beat any of these stills. 20 seconds is enough.
+      // 19.5s cut from one 148s playthrough, in play order: the opening starfield,
+      // the grey caverns, the ember caverns, and the ending. Music is CC BY 4.0 and
+      // the credit below is the licence condition, not decoration.
+      { type: "video", src: "assets/media/lil-ghost-trailer.mp4", poster: "assets/img/ghost/trailer-poster.png",
+        caption: "Twenty seconds across one full run — the caverns, the hazards and the ending. Music: \"Gathering Darkness\" by Kevin MacLeod (incompetech.com), CC BY 4.0" },
+
+      { type: "image", src: "assets/img/ghost/cavern-embers.png",
+        caption: "The ember caverns — the ghost reads as the only cool colour on screen, which is what makes it findable against all that red" },
+      { type: "image", src: "assets/img/ghost/pillars.png",
+        caption: "A descent past spike blocks. The platforms are the safe path and the walls are not, which is the whole vocabulary of the game" },
+      { type: "image", src: "assets/img/ghost/hazard.png",
+        caption: "The colder upper caverns, with a spike run below the ledge" },
+      { type: "image", src: "assets/img/ghost/starfield.png",
+        caption: "The ending opens the cavern out into a starfield — the one moment in the game with no hazard in it" },
+
+      { type: "image", src: "assets/img/ghost/level-climb.png",
+        caption: "Design pass: a vertical climb into a hazard ceiling, one of the five escalating challenges" },
+      { type: "image", src: "assets/img/ghost/moodboard.jpg",
+        caption: "Mood board and colour palettes — the cosmic reference the art direction came from" },
+      { type: "image", src: "assets/img/ghost/concept.png",
+        caption: "Character concept" }
     ],
     links: [
       { label: "Download on itch.io", href: "https://mintchocodino.itch.io/ghost-game" }
     ],
-    status: ["Download"]
+    status: ["Video", "Download"]
   },
 
   /* ===================================================================== */
