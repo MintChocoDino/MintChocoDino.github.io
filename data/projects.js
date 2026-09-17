@@ -62,19 +62,18 @@ window.PROJECTS = [
     tags: ["Procedural Generation", "Wave Systems", "Netcode / Multiplayer", "Tilemap", "Game Feel"],
     cover: "assets/img/zombits/gameplay.png",
     media: [
-      // Unity 6 WebGL build. The itch upload is declared 640x360 but the canvas is 960x600 — see ratio below.
+      // Unity 6 WebGL build, upload 19271120. itch reports the embed viewport as 856x400,
+      // the same 2.14:1 the frame below uses, so the two agree.
       // Click-to-play on purpose: it takes keyboard and mouse, and the build is ~27MB over the wire,
       // so it should not start grabbing input the moment the page opens.
       // Singleplayer only — Netcode co-op does not run in WebGL. Page: https://mintchocodino.itch.io/zombits
-      // ratio tracks the BUILD, not taste. The WebGL template
-      // hard-codes <canvas width=960 height=600> and only styles .unity-mobile #unity-canvas,
-      // so on desktop the canvas is a fixed 960x600 box centred by #unity-container and it
-      // does not resize with the frame. .media__frame has overflow:hidden, so any frame
-      // shorter or narrower than 960x600 simply crops the HUD off at the corners.
-      // Set to 2.14/1 on request, ahead of a build whose canvas is 1040x486. Until that build
-      // is uploaded the canvas is still 960x600 and the frame crops ~55px off the top and bottom.
-      // The real fix is a responsive Unity template plus a Canvas Scaler.
-      { type: "itch", src: "https://itch.io/embed-upload/19270802?color=0d0f11", width: 1040, height: 486, ratio: "2.14/1",
+      // ratio tracks the BUILD, not taste. This build's template fills the embedding frame
+      // (.unity-fill, 100% wide by calc(100% - 38px) for the footer strip) rather than pinning
+      // the canvas, so .media__frame's overflow:hidden no longer clips it.
+      // The previous upload hard-coded <canvas width=960 height=600> and styled only
+      // .unity-mobile #unity-canvas, which is what cropped the HUD at the corners.
+      // The durable fix is still a Canvas Scaler set to Scale With Screen Size in Unity.
+      { type: "itch", src: "https://itch.io/embed-upload/19271120?color=0d0f11", width: 1040, height: 486, ratio: "2.14/1",
         caption: "Zombits 3.0 running in the browser — singleplayer. WASD to move, mouse to aim, F to interact, R to reload. Fullscreen button, bottom right" },
       { type: "video", src: "assets/media/zombits-gameplay.mp4", poster: "assets/img/zombits/gameplay.png" },
       { type: "image", src: "assets/img/zombits/title.png",    caption: "Title screen" },
