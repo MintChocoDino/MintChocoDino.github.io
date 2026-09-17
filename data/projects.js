@@ -47,8 +47,9 @@ window.PROJECTS = [
 
       "Version 3.0 is a full rebuild of an earlier build (Zombits VGS). The rebuild " +
       "replaced the hand-authored level with a procedural map generator and added " +
-      "networked co-op on Unity's Netcode for GameObjects. The screenshots and gameplay " +
-      "video below are from the earlier VGS build."
+      "networked co-op on Unity's Netcode for GameObjects. The playable build below is " +
+      "3.0, singleplayer — the Netcode co-op layer does not run in WebGL. The screenshots " +
+      "and gameplay video are from the earlier VGS build."
     ],
     built: [
       "Procedural map generator that places rooms, carves connecting corridors, and derives door and zombie-spawn positions from the resulting layout — seeded, so any run can be reproduced exactly.",
@@ -61,18 +62,22 @@ window.PROJECTS = [
     tags: ["Procedural Generation", "Wave Systems", "Netcode / Multiplayer", "Tilemap", "Game Feel"],
     cover: "assets/img/zombits/gameplay.png",
     media: [
-      // TODO: once the WebGL build is on itch, uncomment and paste your embed URL:
-      // { type: "itch", src: "https://itch.io/embed-upload/0000000?color=0d0f11", width: 960, height: 600 },
+      // Unity 6 WebGL build, 640x360 (16:9) — fits .media__embed exactly, same as 8-Bit Eye Candy.
+      // Click-to-play on purpose: it takes keyboard and mouse, and the build is ~27MB over the wire,
+      // so it should not start grabbing input the moment the page opens.
+      // Singleplayer only — Netcode co-op does not run in WebGL. Page: https://mintchocodino.itch.io/zombits
+      { type: "itch", src: "https://itch.io/embed-upload/19270802?color=0d0f11", width: 960, height: 540,
+        caption: "Zombits 3.0 running in the browser — singleplayer. WASD to move, mouse to aim, F to interact, R to reload. Fullscreen button, bottom right" },
       { type: "video", src: "assets/media/zombits-gameplay.mp4", poster: "assets/img/zombits/gameplay.png" },
       { type: "image", src: "assets/img/zombits/title.png",    caption: "Title screen" },
       { type: "image", src: "assets/img/zombits/gameplay.png", caption: "Mid-run gameplay — wave counter, points and equipped weapon on the HUD" },
       { type: "image", src: "assets/img/zombits/gameover.png", caption: "Game over screen" }
     ],
     links: [
-      // { label: "Play in browser",  href: "https://YOURNAME.itch.io/zombits" },
-      // { label: "Source on GitHub", href: "https://github.com/MintChocoDino/zombits" }
+      { label: "Play in browser",  href: "https://mintchocodino.itch.io/zombits" },
+      { label: "Source on GitHub", href: "https://github.com/MintChocoDino/Zombits3.0" }
     ],
-    status: ["Video"]
+    status: ["Runs in browser", "Source"]
   },
 
   /* ===================================================================== */
