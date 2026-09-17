@@ -16,3 +16,8 @@ UserSettings/
 
 # Working notes live in the Resonance vault, not in this public repo
 CONTENT-NEEDED.md
+
+# Local static server used for browser checks; never part of the site
+server.log
+_test.*
+_preview.*
