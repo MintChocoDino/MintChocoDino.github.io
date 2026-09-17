@@ -1,9 +1,11 @@
 # Portfolio site — Nathanial Hodnett
 
-Static site, no framework, no build step, no dependencies. GitHub Pages target:
-`MintChocoDino/LandingPage`. **The repo is currently private and Pages is off** —
-Pages on a private repo needs a paid GitHub plan, and going public is the user's
-call, not an assumed step.
+Static site, no framework, no build step, no dependencies. The remote is
+`MintChocoDino/MintChocoDino.github.io`, it is **public**, and Pages is **live** at
+https://mintchocodino.github.io/ — a push to `main` publishes within about a minute.
+Treat every commit here as going straight to a page a recruiter can read.
+
+The local folder is still named `LandingPage`; the repo it pushes to is not.
 
 ## How this site works
 

@@ -9,12 +9,13 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0d0f11">
 
-<!-- Open Graph / social preview.
-     TODO: replace og:url and og:image once the site is live on GitHub Pages. -->
+<!-- Open Graph / social preview. og:image must be an absolute URL — scrapers do not
+     resolve relative paths, so a relative one silently yields no preview card. -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://mintchocodino.github.io/">
 <meta property="og:title" content="Nathanial Hodnett — Game Developer">
 <meta property="og:description" content="Gameplay systems, procedural generation, networked multiplayer and interactive installation.">
-<meta property="og:image" content="assets/img/zombits/gameplay.png">
+<meta property="og:image" content="https://mintchocodino.github.io/assets/img/zombits/gameplay.png">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230d0f11'/><text y='.9em' x='50%25' text-anchor='middle' font-size='62' font-family='monospace' fill='%23e8b04b'>N</text></svg>">
@@ -64,7 +65,8 @@
             <p style="color:var(--fg-muted);font-size:14.5px;margin:0">
               Memory Developer at Sunday Robotics, building household training
               environments for domestic robotics. Shipping playable WebGL builds of
-              Zombits and Labyrinth to this site.
+              my Unity work to this site — Zombits and 8-Bit Eye Candy run in the
+              browser now.
             </p>
           </div>
         </div>
