@@ -30,7 +30,7 @@ window.PROJECTS = [
   /* ===================================================================== */
   {
     id: "zombits",
-    title: "Zombits 3.0",
+    title: "Zombits",
     category: "games",
     featured: true,
     year: "2026",
@@ -45,11 +45,11 @@ window.PROJECTS = [
       "you hold out against escalating waves, spend points on doors and upgrades, and " +
       "push deeper into the map as it opens up.",
 
-      "Version 3.0 is a full rebuild of an earlier build (Zombits VGS). The rebuild " +
-      "replaced the hand-authored level with a procedural map generator and added " +
-      "networked co-op on Unity's Netcode for GameObjects. The playable build below is " +
-      "3.0, singleplayer — the Netcode co-op layer does not run in WebGL. The screenshots " +
-      "and gameplay video are from the earlier VGS build."
+      "The current version is a full rebuild of the first one. The hand-authored level " +
+      "was replaced with a procedural map generator, and networked co-op was added on " +
+      "Unity's Netcode for GameObjects. The playable build below is singleplayer — the " +
+      "Netcode co-op layer does not run in WebGL, so the co-op screenshots are from the " +
+      "desktop build."
     ],
     built: [
       "Procedural map generator that places rooms, carves connecting corridors, and derives door and zombie-spawn positions from the resulting layout — seeded, so any run can be reproduced exactly.",
@@ -74,8 +74,29 @@ window.PROJECTS = [
       // .unity-mobile #unity-canvas, which is what cropped the HUD at the corners.
       // The durable fix is still a Canvas Scaler set to Scale With Screen Size in Unity.
       { type: "itch", src: "https://itch.io/embed-upload/19271120?color=0d0f11", width: 1040, height: 486, ratio: "2.14/1",
-        caption: "Zombits 3.0 running in the browser — singleplayer. WASD to move, mouse to aim, F to interact, R to reload. Fullscreen button, bottom right" },
-      { type: "video", src: "assets/media/zombits-gameplay.mp4", poster: "assets/img/zombits/gameplay.png" },
+        caption: "Zombits running in the browser — singleplayer. WASD to move, mouse to aim, F to interact, R to reload. Fullscreen button, bottom right" },
+
+      // 15s cut from a single unbroken run (waves 1-3), so the pacing is the game's own.
+      // Music is CC BY 4.0 and the credit below is the licence condition, not decoration.
+      // Poster is a frame of this same cut, so it matches the video's 2.07:1 box exactly
+      // and does not letterbox the way a 16/9-ish screenshot would.
+      { type: "video", src: "assets/media/zombits-trailer.mp4", poster: "assets/img/zombits/trailer-poster.png",
+        caption: "Fifteen seconds from one run — wave escalation, the Mystery Box, and a perk buy. Music: \"Volatile Reaction\" by Kevin MacLeod (incompetech.com), CC BY 4.0" },
+
+      // Three separate runs, not three angles on one map. Shown together on purpose:
+      // the point of the generator is only legible when you can compare outputs.
+      { type: "image", src: "assets/img/zombits/procgen-1.png",
+        caption: "Procedural generation — a generated map, shown whole. Rooms are carved, then linked by corridors, and door and spawn positions are derived from the layout that results" },
+      { type: "image", src: "assets/img/zombits/procgen-2.png",
+        caption: "Procedural generation — a second seed. Same generator, different room count, corridor runs and branching" },
+      { type: "image", src: "assets/img/zombits/procgen-3.png",
+        caption: "Procedural generation — a third seed. Every run is laid out from scratch, and any seed can be replayed exactly" },
+
+      { type: "image", src: "assets/img/zombits/multiplayer-connect.png",
+        caption: "Netcode connection UI — host or join by address, with live connection state" },
+      { type: "image", src: "assets/img/zombits/multiplayer-coop.png",
+        caption: "Two clients in one session — player replication over Netcode for GameObjects" },
+
       { type: "image", src: "assets/img/zombits/title.png",    caption: "Title screen" },
       { type: "image", src: "assets/img/zombits/gameplay.png", caption: "Mid-run gameplay — wave counter, points and equipped weapon on the HUD" },
       { type: "image", src: "assets/img/zombits/gameover.png", caption: "Game over screen" }

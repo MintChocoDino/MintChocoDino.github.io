@@ -33,7 +33,7 @@ of showing placeholder text to a recruiter.
 ```js
 {
   id:       "zombits",          // unique, url-safe. Detail page = project.html?id=zombits
-  title:    "Zombits 3.0",
+  title:    "Zombits",
   category: "games",            // games | interactive | creative | design
   featured: true,               // large treatment at the top of Selected Work
   hidden:   false,              // true = kept in the file but not shown
