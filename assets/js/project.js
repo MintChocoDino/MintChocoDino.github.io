@@ -134,7 +134,11 @@ window.PF_DETAIL = function () {
 
   /* --- body / built ------------------------------------------------------ */
 
-  var prose = (p.body || []).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
+  // Filter, like `built` below does. Without this a TODO paragraph left in a body
+  // array prints verbatim to the page — notes addressed to the author, shown to a
+  // recruiter. The whole point of the TODO convention is that it degrades quietly.
+  var prose = (p.body || []).filter(function (t) { return has(t); })
+    .map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("");
 
   var built = (p.built || []).filter(function (b) { return has(b); });
   var builtHTML = built.length
