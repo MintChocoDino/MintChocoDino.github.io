@@ -39,8 +39,9 @@ window.PF_DETAIL = function () {
 
   /* --- media renderers --------------------------------------------------- */
 
-  function frame(inner, extraClass) {
-    return '<div class="media__frame ' + (extraClass || "") + '">' + inner + "</div>";
+  function frame(inner, extraClass, style) {
+    return '<div class="media__frame ' + (extraClass || "") + '"' +
+           (style ? ' style="' + style + '"' : "") + ">" + inner + "</div>";
   }
 
   function caption(m) {
@@ -55,7 +56,10 @@ window.PF_DETAIL = function () {
         inner = frame(
           '<iframe src="' + esc(m.src) + '" allowfullscreen ' +
           'title="' + esc(p.title) + ' — playable build" loading="lazy"></iframe>',
-          "media__embed"
+          "media__embed",
+          // Per-embed override of the default 16/9. Widening the frame gives a Unity
+          // build whose UI is anchored to the corners more horizontal room to play with.
+          has(m.ratio) ? "aspect-ratio:" + esc(m.ratio) : ""
         );
         break;
 
