@@ -116,9 +116,16 @@
       nav += '<a class="nav-cta" href="' + esc(L.resume) + '" target="_blank" rel="noopener">Résumé</a>';
     }
 
+    // The mark is painted with a CSS mask rather than an <img> so it inherits
+    // colour from the link — an <img> of an SVG gets no CSS context, so its
+    // currentColor fill would resolve to black. Decorative, so aria-hidden: a
+    // screen reader announcing "dinosaur at a laptop" before the name helps nobody.
     host.innerHTML =
       '<div class="site-header__inner">' +
-        '<a class="brand" href="index.html">' + esc(SITE.name || "") + '<span>.</span></a>' +
+        '<a class="brand" href="index.html">' +
+          '<span class="brand__mark" aria-hidden="true"></span>' +
+          '<span class="brand__name">' + esc(SITE.name || "") + '<span class="brand__dot">.</span></span>' +
+        "</a>" +
         '<nav class="nav">' + nav + "</nav>" +
       "</div>";
   }

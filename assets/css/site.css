@@ -1,30 +1,41 @@
 /* ===========================================================================
    Nathanial Hodnett — portfolio
-   Theme: Technical Blueprint. Dark charcoal, hairline rules, brass accent,
-   monospace for every piece of metadata.
+   Theme: Mint Choco. Roasted brown ground, mint green accent, hairline rules,
+   New York for everything that is read and monospace for everything that is
+   scanned. The palette is the tag: mintchocodino.
    =========================================================================== */
 
 /* --- tokens -------------------------------------------------------------- */
 :root {
-  --bg:         #0d0f11;
-  --bg-elev:    #14171a;
-  --bg-elev-2:  #191d21;
-  --bg-inset:   #0a0c0e;
+  /* Warm dark browns, all on roughly the same hue (~25deg) so elevation reads
+     as light rather than as a colour shift. */
+  --bg:         #221A15;
+  --bg-elev:    #2B211B;
+  --bg-elev-2:  #33271F;
+  --bg-inset:   #1A1410;
 
-  --rule:        rgba(226, 232, 240, 0.10);
-  --rule-strong: rgba(226, 232, 240, 0.20);
+  /* Rules are warm white at low alpha, so they sit on the brown instead of
+     going grey-blue against it. */
+  --rule:        rgba(244, 236, 228, 0.10);
+  --rule-strong: rgba(244, 236, 228, 0.20);
 
-  --fg:       #e8ecef;
-  --fg-muted: #98a5b0;
-  --fg-dim:   #6b7883;
+  /* Warm off-whites. Every pair below clears WCAG AA on --bg; fg and fg-muted
+     clear AAA. fg-dim is 5.45:1, which matters because the 11px mono captions
+     use it — the old blue-grey scheme had that pair at about 4:1 and failed. */
+  --fg:       #F4ECE4;
+  --fg-muted: #C6B5A6;
+  --fg-dim:   #A18E7E;
 
-  --accent:      #e8b04b;
-  --accent-soft: rgba(232, 176, 75, 0.14);
-  --accent-line: rgba(232, 176, 75, 0.40);
+  --accent:      #7FD8B0;
+  --accent-soft: rgba(127, 216, 176, 0.14);
+  --accent-line: rgba(127, 216, 176, 0.40);
 
   --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* New York is Apple's serif and ships on macOS/iOS only — ui-serif resolves
+     to it there. Newsreader is the web fallback everywhere else: same
+     old-style warmth, designed for screen reading. Georgia backs both up. */
+  --display: "New York", ui-serif, "Newsreader", Georgia, "Times New Roman", serif;
+  --body:    "New York", ui-serif, "Newsreader", Georgia, "Times New Roman", serif;
 
   --measure: 68ch;
   --gutter: clamp(20px, 5vw, 64px);
@@ -62,7 +73,7 @@ img, video { height: auto; display: block; }
 a { color: inherit; }
 
 h1, h2, h3, h4 {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.015em;
@@ -80,7 +91,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 
 .skip {
   position: absolute; left: -9999px; top: 0; z-index: 200;
-  background: var(--accent); color: #0d0f11;
+  background: var(--accent); color: var(--bg);
   padding: 10px 16px; font-family: var(--mono); font-size: 13px;
 }
 .skip:focus { left: 8px; top: 8px; }
@@ -133,7 +144,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 15, 17, 0.82);
+  background: rgba(34, 26, 21, 0.82);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--rule);
@@ -149,6 +160,9 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   padding-inline: var(--gutter);
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--mono);
   font-size: 13px;
   font-weight: 500;
@@ -158,7 +172,26 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   color: var(--fg);
   white-space: nowrap;
 }
-.brand span { color: var(--accent); }
+.brand__dot { color: var(--accent); }
+
+/* Masked rather than <img>, so the mark takes its colour from here and can
+   react to hover. background is what actually gets painted; the SVG only
+   supplies the shape. */
+.brand__mark {
+  flex: none;
+  width: 46px;
+  height: 28px;
+  background: var(--accent);
+  -webkit-mask: url("../img/brand/dino.svg") center / contain no-repeat;
+          mask: url("../img/brand/dino.svg") center / contain no-repeat;
+  transition: background .18s var(--ease), transform .18s var(--ease);
+}
+.brand:hover .brand__mark { background: var(--fg); transform: translateY(-1px); }
+
+@media (max-width: 640px) {
+  .brand { gap: 7px; }
+  .brand__mark { width: 34px; height: 21px; }
+}
 
 .nav { display: flex; align-items: center; gap: 4px; }
 .nav a {
@@ -179,7 +212,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   margin-left: 8px;
   transition: background .18s var(--ease), color .18s var(--ease);
 }
-.nav a.nav-cta:hover { background: var(--accent); color: #0d0f11; }
+.nav a.nav-cta:hover { background: var(--accent); color: var(--bg); }
 
 @media (max-width: 640px) {
   .nav a { padding: 8px 8px; font-size: 11px; letter-spacing: .06em; }
@@ -250,7 +283,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   margin-bottom: 28px;
 }
 .hero__statement {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-size: clamp(1.05rem, 2.2vw, 1.3rem);
   line-height: 1.55;
   color: var(--fg);
@@ -326,7 +359,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .btn:hover { color: var(--fg); border-color: var(--fg-dim); background: var(--bg-elev); }
 
 .btn--accent { color: var(--accent); border-color: var(--accent-line); }
-.btn--accent:hover { background: var(--accent); border-color: var(--accent); color: #0d0f11; }
+.btn--accent:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 
 .btn__arrow { transition: transform .18s var(--ease); }
 .btn:hover .btn__arrow { transform: translateX(3px); }
@@ -407,7 +440,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   font-size: clamp(2rem, 8vw, 3.4rem);
   font-weight: 500;
   letter-spacing: 0.12em;
-  color: rgba(232, 176, 75, 0.22);
+  color: rgba(127, 216, 176, 0.22);
 }
 
 /* --- tags / badges ------------------------------------------------------- */
@@ -432,12 +465,12 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   letter-spacing: 0.10em;
   text-transform: uppercase;
   padding: 4px 9px;
-  background: rgba(13, 15, 17, 0.88);
+  background: rgba(34, 26, 21, 0.88);
   border: 1px solid var(--rule-strong);
   color: var(--fg-muted);
   backdrop-filter: blur(4px);
 }
-.badge--playable { color: var(--accent); border-color: var(--accent-line); background: rgba(13,15,17,.92); }
+.badge--playable { color: var(--accent); border-color: var(--accent-line); background: rgba(34, 26, 21, .92); }
 .badge--todo     { color: var(--fg-dim); }
 
 /* --- project grid -------------------------------------------------------- */
@@ -595,7 +628,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   margin-bottom: 14px;
 }
 .proj-head__summary {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-size: clamp(1.02rem, 2.2vw, 1.22rem);
   line-height: 1.55;
   color: var(--fg-muted);
@@ -665,8 +698,9 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .media__hint strong { color: var(--accent); font-weight: 500; }
 
-/* Readable sample of written work. Serif and a comfortable measure on purpose:
-   this block is meant to be read, not scanned like the rest of the page. */
+/* Readable sample of written work. This used to force Georgia to contrast with a
+   sans body; the body is New York now, so the separation comes from the inset
+   ground and the accent rule instead, and the type just matches. */
 .excerpt {
   margin: 0;
   padding: 26px clamp(20px, 4vw, 34px);
@@ -697,7 +731,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   color: var(--fg-dim);
 }
 .excerpt p {
-  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-family: var(--body);
   font-size: 15.5px;
   line-height: 1.75;
   color: var(--fg-muted);
@@ -774,7 +808,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   color: var(--fg-dim);
   margin-bottom: 6px;
 }
-.proj-nav__title { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; color: var(--fg); }
+.proj-nav__title { font-family: var(--display); font-size: 1.05rem; font-weight: 600; color: var(--fg); }
 @media (max-width: 560px) {
   .proj-nav { grid-template-columns: 1fr; }
   .proj-nav a:last-child { text-align: left; }

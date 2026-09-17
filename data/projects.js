@@ -14,7 +14,7 @@
      built     array of bullet strings: what YOU specifically implemented
      tags      array of short strings
      media     array, rendered in order on the detail page. Types:
-                 { type:"itch",    src:"https://itch.io/embed-upload/0000000?color=0d0f11",
+                 { type:"itch",    src:"https://itch.io/embed-upload/0000000?color=221A15",
                    width:960, height:600 }
                  { type:"local",   src:"play/snake/index.html", ratio:"16/10" }
                  { type:"youtube", src:"VIDEO_ID" }
@@ -76,7 +76,7 @@ window.PROJECTS = [
       // The previous upload hard-coded <canvas width=960 height=600> and styled only
       // .unity-mobile #unity-canvas, which is what cropped the HUD at the corners.
       // The durable fix is still a Canvas Scaler set to Scale With Screen Size in Unity.
-      { type: "itch", src: "https://itch.io/embed-upload/19271120?color=0d0f11", width: 1040, height: 486, ratio: "2.14/1",
+      { type: "itch", src: "https://itch.io/embed-upload/19271120?color=221A15", width: 1040, height: 486, ratio: "2.14/1",
         caption: "Zombits running in the browser — singleplayer. WASD to move, mouse to aim, F to interact, R to reload. Fullscreen button, bottom right" },
 
       // 15s cut from a single unbroken run (waves 1-3), so the pacing is the game's own.
@@ -278,7 +278,7 @@ window.PROJECTS = [
       // Autostarts — no click-to-play splash, which is the point for an ambient piece.
       // Source build is 640x360 (16:9); .media__embed is aspect-ratio 16/9, so it fits
       // exactly. Page: https://mintchocodino.itch.io/8biteyecandy
-      { type: "itch", src: "https://itch.io/embed-upload/19259485?color=0d0f11", width: 960, height: 540,
+      { type: "itch", src: "https://itch.io/embed-upload/19259485?color=221A15", width: 960, height: 540,
         caption: "Running live. There are no controls — it plays itself. Fullscreen button, bottom right" },
       { type: "image", src: "assets/img/eyecandy/cover.png", caption: "Ships and wireframe asteroids mid-engagement" }
     ],
